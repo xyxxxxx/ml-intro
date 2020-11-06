@@ -774,6 +774,7 @@ $$
 
 常用的核函数包含：
 
-+ 多项式核$$k(\pmb x,\pmb z)=(\pmb x^{\rm T}\pmb z+R)^d$$
++ 多项式核$$k(\pmb x,\pmb z)=(r\pmb x^{\rm T}\pmb z+b)^d$$
 + 高斯核$$k(\pmb x,\pmb z)=\exp(-\frac{\|\pmb x-\pmb z\|^2}{2\sigma^2})$$  高斯核将原始空间映射到无穷维空间。如果参数$$\sigma$$选得很大，高次特征上的权重实际上衰减得非常快，所以近似于一个低维的子空间；如果参数$$\sigma$$选得很小，则可以将几乎任何数据映射为线性可分，但划分能力过强可能带来严重的过拟合问题。通过调控参数$$\sigma$$，高斯核具有非常高的灵活性，也是使用最广泛的核函数之一。
 + 线性核$$k(\pmb x,\pmb z)=\pmb x^{\rm T}\pmb z$$   即原始空间的内积
++ Sigmoid核$$k(\pmb x,\pmb z)=\tanh(r\pmb x^{\rm T}\pmb z+b)$$
