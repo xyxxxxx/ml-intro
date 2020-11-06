@@ -1,4 +1,6 @@
-[在Google Colab中运行例题](https://colab.research.google.com/drive/1VJSCo40k45PTSi5WTfvY3A67ocapy641?usp=sharing)
+本部分使用[Google Colab](https://drive.google.com/drive/folders/1cF0hB_Fd0BlR4Dk-LU3XxJHo6EUjq3SM?usp=sharing)中的文档：`ml-intro3-linear-model.ipynb`，`SVM.ipynb`。
+
+
 
 **线性模型(linear model)**是机器学习中应用最广泛的模型，指通过样本特征的线性组合来进行预测的模型。给定一个$$D$$维样本$$\pmb x=[x_1,\cdots,x_D]^{\rm T}$$，其线性组合函数为
 $$
