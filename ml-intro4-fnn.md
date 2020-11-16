@@ -450,8 +450,6 @@ $$
 
 ## 自动微分
 
-> 参考[自动微分](http://fancyerii.github.io/books/autodiff/)
-
 **自动微分(Automatic Differentiation , AD)**是一种可以对一个（程序）函数进行计算导数的方法。
 
 自动微分的基本原理是所有的数值计算可以分解为一些基本操作，包含$$+, −, ×, /$$和一些初等函数$$\exp, \log, \sin, \cos$$等，然后利用链式法则来自动计算一个复合函数的梯度。
