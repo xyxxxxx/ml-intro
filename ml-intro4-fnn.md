@@ -234,7 +234,7 @@ Maxout 激活函数可以看作任意凸函数的分段线性近似，并且在�
 
 下图给出了前馈网络、记忆网络和图网络的网络结构示例，其中圆形节点表示一个神经元，方形节点表示一组神经元。
 
-![](/home/xyx/Pictures/Screenshot from 2020-09-15 13-08-51.png)
+![](https://i.loli.net/2020/11/16/CsRP5ruqUcEh4lI.png)
 
 
 
@@ -374,7 +374,7 @@ $$
 
    其中$$\pmb w_{i*}^{(l)}$$表示$$\pmb W^{(l)}$$的第$$i$$行，$$\mathbb{I}_i(a_j^{(l-1)})$$表示第$$i$$个元素为$$a_j^{(l-1)}$$，其余为0的行向量。
 
-2. 计算偏导数$$\frac{\partial \pmb z^{(l)}}{\partial \pmb b^{(l)}}$$，根据$$\pmb z^{(l)}=\pmb W^{(l)}\pmb a^{(l-1)}+\pmb b^{(l)}\\$$，
+2. 计算偏导数$$\frac{\partial \pmb z^{(l)}}{\partial \pmb b^{(l)}}$$，根据$$\pmb z^{(l)}=\pmb W^{(l)}\pmb a^{(l-1)}+\pmb b^{(l)}$$，
 
    $$
    \frac{\partial \pmb z^{(l)}}{\partial \pmb b^{(l)}}=\pmb I_{M_l}\in \mathbb{R}^{M_l\times M_l}
@@ -388,7 +388,7 @@ $$
    $$
    误差项也间接反映了不同神经元对网络能力的贡献程度，从而比较好地解决**贡献度分配问题(Credit Assignment Problem, CAP)**。
 
-   根据$$\pmb z^{(l+1)}=\pmb W^{(l+1)}\pmb a^{(l)}+\pmb b^{(l+1)}\\$$，
+   根据$$\pmb z^{(l+1)}=\pmb W^{(l+1)}\pmb a^{(l)}+\pmb b^{(l+1)}$$，
    $$
    \frac{\partial \pmb z^{(l+1)}}{\partial \pmb a^{(l)}}=(\pmb W^{(l+1)})^{\rm T} \in \mathbb{R}^{M_l\times M_{l+1}}
    $$
@@ -508,15 +508,15 @@ $$
 
 计算图
 
-<img src="http://fancyerii.github.io/img/autodiff/tree-def.png" alt="img" style="zoom: 33%;" />
+<img src="http://fancyerii.github.io/img/autodiff/tree-def.png" alt="" style="zoom: 33%;" />
 
 前向模式
 
-<img src="http://fancyerii.github.io/img/autodiff/tree-forwradmode.png" alt="img" style="zoom:33%;" />
+<img src="http://fancyerii.github.io/img/autodiff/tree-forwradmode.png" alt="" style="zoom:33%;" />
 
 反向模式
 
-<img src="http://fancyerii.github.io/img/autodiff/tree-backprop.png" alt="img" style="zoom:33%;" />
+<img src="http://fancyerii.github.io/img/autodiff/tree-backprop.png" alt="" style="zoom:33%;" />
 
 
 
