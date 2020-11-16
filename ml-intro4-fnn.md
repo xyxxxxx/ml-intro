@@ -464,7 +464,12 @@ f(x;w,b)=\frac{1}{\exp(-(wx+b))+1}
 $$
 其中$$x$$为输入标量，$$w$$和$$b$$分别为权重和偏置参数。求$$f(x;w,b)$$在$$x=1,w=0,b=0$$时的梯度。
 
-首先将复合函数$$f(x;w,b)$$分解为一系列的基本函数$$h_i$$，如下表所示，每个基本函数的导数都十分简单，可以通过规则来实现。
+首先，我们将复合函数$$f(x; w, b)$$分解为一系列的基本操作，并构成一个计算图(computational graph)。计算图是数学运算的图形化表示，其中的每个非叶子节点表示一个基本操作，每个叶子节点为一个输入变量或常量。下图给
+出了当$$ x = 1, w = 0, b = 0 $$时复合函数$$f(x; w, b)$$的计算图，其中连边上的红色数字表示前向计算时复合函数中每个变量的实际取值。
+
+![](https://i.loli.net/2020/11/16/soP9f3lMQq2haYt.png)
+
+复合函数$$f(x;w,b)$$被分解为一系列的基本函数$$h_i$$，如下表所示，每个基本函数的导数都十分简单，可以通过规则来实现。
 $$
 \begin{align}
 \hline
@@ -487,7 +492,7 @@ $$
 因此$$f(x;w,b)$$对参数$$w$$和$$b$$的偏导数可以通过链式法则求得
 $$
 \frac{\partial f(x;w,b)}{\partial w}=\frac{\partial f(x;w,b)}{\partial h_6}\frac{\partial h_6}{\partial h_5}\frac{\partial h_5}{\partial h_4}\frac{\partial h_4}{\partial h_3}\frac{\partial h_3}{\partial h_2}\frac{\partial h_2}{\partial h_1}\frac{\partial h_1}{\partial w}\\
-\frac{\partial f(x;w,b)}{\partial b}=\frac{\partial f(x;w,b)}{\partial h_6}\frac{\partial h_6}{\partial h_5}\frac{\partial h_5}{\partial h_4}\frac{\partial h_4}{\partial h_3}\frac{\partial h_3}{\partial h_2}\frac{\partial h_2}{\partial h_1}\frac{\partial h_1}{\partial b}\\
+\frac{\partial f(x;w,b)}{\partial b}=\frac{\partial f(x;w,b)}{\partial h_6}\frac{\partial h_6}{\partial h_5}\frac{\partial h_5}{\partial h_4}\frac{\partial h_4}{\partial h_3}\frac{\partial h_3}{\partial h_2}\frac{\partial h_2}{\partial b}\\
 $$
 当$$x=1,w=0,b=0$$时，
 $$
@@ -495,9 +500,16 @@ $$
 =1\times -0.25\times1\times1\times-1\times1\times1=0.25
 $$
 
-计算图如图所示
+如果函数和参数之间有多条路径，可以将这多条路径上的导数再进行相加，得到最终的梯度。
 
-![](https://i.loli.net/2020/11/16/soP9f3lMQq2haYt.png)
+按照计算导数的顺序，自动微分可以分为两种模式：前向模式和反向模式。**前向模式**是按计算图中计算方向的相同方向来递归地计算梯度；**反向模式**是按计算图中计算方向的相反方向来递归地计算梯度。前向模式和反向模式可以看作应用链式法则的两种梯度累积方式，从反向模式的计算顺序可以看出，反向模式和反向传播的计算梯度的方式相同。在前馈神经网络的参数学习中，风险函数为$$f ∶\mathbb{R}^N →\mathbb{R}$$，输出为标量，因此采用反向模式为最有效的计算方式，只需要一遍计算。
+
+
+计算图按构建方式可以分为**静态计算图(static computational graph)**和**动态计算图(dynamic computational graph)**。 静态计算图是在编译时构建计算图，计算图构建好之后在程序运行时不能改变，而动态计算图是在程序运行时动态构建。两种构建方式各有优缺点：静态计算图<u>在构建时可以进行优化，并行能力强</u>，但灵活性比较差。动态计算图则不容易优化，当不同输入的网络结构不一致时，难以并行计算，但是<u>灵活性比较高</u>。
+
+> 在目前深度学习框架里，Theano 和 Tensorflow 采用的是静态计算图，而 DyNet 、Chainer 和 PyTorch 采是动态计算图。Tensorflow 2.0 也支持了动态计算图。
+
+
 
 
 
