@@ -63,7 +63,7 @@ $$
 
 
 
-# 简单循环网络
+# 简单循环网络SRN
 
 **简单循环网络(Simple Recurrent Network, SRN)** [Elman, 1990] 是一个非常简单的循环神经网络，只有一个隐藏层。
 
@@ -212,7 +212,7 @@ $$
 
 
 
-## 随时间反向传播算法
+## 随时间反向传播算法BPTT
 
 **随时间反向传播(BackPropagation Through Time , BPTT)**算法的主要思想是通过类似前馈神经网络的错误反向传播算法 [Werbos, 1990] 来计算梯度。
 
@@ -256,7 +256,7 @@ $$
 
 
 
-## 实时循环学习算法
+## 实时循环学习算法RTRL
 
 与反向传播的 BPTT 算法不同，**实时循环学习(Real-Time Recurrent Learning , RTRL)**通过前向传播的方式来计算梯度 [Williams et al., 1995] 。
 
@@ -360,7 +360,7 @@ $$
 
 
 
-## 长短期记忆网络
+## 长短期记忆网络LSTM
 
 **长短期记忆网络(Long Short-Term Memory Network, LSTM)** [Gers et al.,2000; Hochreiter et al., 1997] 是循环神经网络的一个变体，可以有效地解决简单循环神经网络的梯度爆炸或消失问题。
 
@@ -447,7 +447,7 @@ $$
 
 
 
-## 门控循环单元网络
+## 门控循环单元网络GRU
 
 **门控循环单元(Gated Recurrent Unit, GRU)**网络 [Cho et al., 2014; Chung et al., 2014] 是一种比 LSTM 网络更加简单的循环神经网络。
 
