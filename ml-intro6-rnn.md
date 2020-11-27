@@ -78,8 +78,6 @@ $$
 $$
 下图给出了按时间展开的循环神经网络
 
-<a name="img1">![](/home/xyx/Pictures/Screenshot from 2020-09-22 18-30-07.png)</a>
-
 ![](https://pic3.zhimg.com/80/v2-34a870b0e60d513e7153b3f27fa66786_720w.jpg)
 
 ![](https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter06/6.2_rnn.svg)
@@ -218,7 +216,7 @@ $$
 
 **随时间反向传播(BackPropagation Through Time , BPTT)**算法的主要思想是通过类似前馈神经网络的错误反向传播算法 [Werbos, 1990] 来计算梯度。
 
-BPTT 算法将循环神经网络看作一个展开的多层前馈网络，其中 “每一层” 对应循环网络中的 “每个时刻“([如图](#img1))，这样循环神经网络就可以按照前馈网络中的反向传播算法计算参数梯度。在 “展开” 的前馈网络中，所有层的参数是共享的，因此参数的真实梯度是所有 “展开层” 的参数梯度之和。
+BPTT 算法将循环神经网络看作一个展开的多层前馈网络，其中 “每一层” 对应循环网络中的 “每个时刻“，这样循环神经网络就可以按照前馈网络中的反向传播算法计算参数梯度。在 “展开” 的前馈网络中，所有层的参数是共享的，因此参数的真实梯度是所有 “展开层” 的参数梯度之和。
 
 **计算偏导数$$\frac{\partial \mathcal{L}_t}{\partial U}$$**
 $$
@@ -357,8 +355,6 @@ $$
 > 参考[Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 >
 > [为什么相比于RNN，LSTM在梯度消失上表现更好？](https://www.zhihu.com/question/44895610/answer/616818627)
->
-> 
 
 为了改善循环神经网络的长程依赖问题，一种非常好的解决方案是在模型$$\pmb h_t=\pmb h_{t-1}+g(\pmb x_t,\pmb h_{t-1};\theta)$$的基础上引入门控机制来控制信息的累积速度，包括有选择地加入新的信息，并有选择地遗忘之前累积的信息。这一类网络可以称为**基于门控的循环神经网络(Gated RNN)**。这里主要介绍两种基于门控的循环神经网络：长短期记忆网络和门控循环单元网络。
 
