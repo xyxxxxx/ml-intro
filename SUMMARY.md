@@ -6,5 +6,5 @@
 * [3.线性模型](ml-intro3-linear-model.md)
 * [4.前馈神经网络](ml-intro4-fnn.md)
 * [5.卷积神经网络](ml-intro5-cnn.md)
-* [6.循环神经网络](ml-intro5-rnn.md)
+* [6.循环神经网络](ml-intro6-rnn.md)
 
